@@ -9,22 +9,24 @@
 import Domain
 
 public protocol HomeInteractorProtocol {
+    var presenter: HomePresenterProtocol? { get set }
+    
     func fetchBlogs()
+    func attach(presenter: HomePresenterProtocol)
 }
 
 public final class HomeInteractor {
     
-    private let presenter: HomePresenterProtocol
     private let getBlogsWorker: GetBlogsWorker
-    
     private var blogPosts: [BlogPost] = []
     
-    public init(
-        presenter: HomePresenterProtocol,
-        getBlogsWorker: GetBlogsWorker
-    ) {
-        self.presenter = presenter
+    public var presenter: HomePresenterProtocol?
+    public init(getBlogsWorker: GetBlogsWorker) {
         self.getBlogsWorker = getBlogsWorker
+    }
+    
+    public func attach(presenter: HomePresenterProtocol) {
+        self.presenter = presenter
     }
 }
 
@@ -36,9 +38,9 @@ extension HomeInteractor: HomeInteractorProtocol {
             switch result {
             case .success(let blogPosts):
                 self?.blogPosts = blogPosts
-                self?.presenter.presentBlogPost(response: 0)
+                self?.presenter?.presentBlogPost(response: 0)
             case .failure:
-                self?.presenter.presentError()
+                self?.presenter?.presentError()
             }
         }
     }

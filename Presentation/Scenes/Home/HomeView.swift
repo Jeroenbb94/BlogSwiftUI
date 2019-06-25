@@ -16,9 +16,11 @@ public protocol HomeViewDisplayProtocol {
 public struct HomeView: View {
     
     private let interactor: HomeInteractorProtocol
+    private let presenter: HomePresenterProtocol
     
-    init(interactor: HomeInteractorProtocol) {
+    public init(interactor: HomeInteractorProtocol, presenter: HomePresenterProtocol) {
         self.interactor = interactor
+        self.presenter = presenter
     }
     
     public var body: some View {

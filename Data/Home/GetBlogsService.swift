@@ -13,7 +13,7 @@ public struct GetBlogsService: GetBlogsWorker {
     
     private let manager: SessionManager
     
-    public init(manager: SessionManager = SessionManager.default) {
+    public init(manager: SessionManager) {
         self.manager = manager
     }
     

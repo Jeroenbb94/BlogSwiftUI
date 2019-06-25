@@ -9,18 +9,24 @@
 import UIKit
 
 public protocol HomePresenterProtocol {
+    var view: HomeViewDisplayProtocol? { get set }
+    func attach(view: HomeViewDisplayProtocol)
+    
     func presentBlogPost(response: Int)
     func presentError()
 }
 
-public struct HomePresenter {
+public final class HomePresenter {
     
     private let displayThreadQueue: DispatchQueue
-    private let view: HomeViewDisplayProtocol?
+    public var view: HomeViewDisplayProtocol?
     
-    public init(view: HomeViewDisplayProtocol, displayThreadQueue: DispatchQueue = .main) {
-        self.view = view
+    public init(displayThreadQueue: DispatchQueue = .main) {
         self.displayThreadQueue = displayThreadQueue
+    }
+    
+    public func attach(view: HomeViewDisplayProtocol) {
+        self.view = view
     }
 }
 

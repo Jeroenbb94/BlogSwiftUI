@@ -8,10 +8,13 @@
 
 import UIKit
 import SwiftUI
+import Presentation
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    private let appAssembly: AppAssembly = AppAssembly()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -24,7 +27,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = UIHostingController(rootView: ContentView())
+        
+        window.rootViewController = UIHostingController(rootView: appAssembly.container.resolve(HomeView.self)!)
         self.window = window
         window.makeKeyAndVisible()
     }

@@ -33,7 +33,12 @@
 		D319F13522C2876400B289CA /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D319F0E822C286B800B289CA /* Domain.framework */; };
 		D319F13622C2876400B289CA /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D319F0E822C286B800B289CA /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D319F13F22C28A5100B289CA /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = D319F13E22C28A5100B289CA /* Nuke */; };
-		D319F14122C28A8D00B289CA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D319F14022C28A8D00B289CA /* Alamofire */; };
+		D319F14722C28DEB00B289CA /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = D319F14622C28DEB00B289CA /* Swinject */; };
+		D319F14B22C28E7400B289CA /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319F14A22C28E7400B289CA /* HomeAssembly.swift */; };
+		D319F15022C290AD00B289CA /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319F14F22C290AD00B289CA /* ServiceAssembly.swift */; };
+		D319F15422C2914A00B289CA /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319F15322C2914A00B289CA /* AppAssembly.swift */; };
+		D319F15622C29B3800B289CA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D319F15522C29B3800B289CA /* Alamofire */; };
+		D319F15822C29B5300B289CA /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = D319F15722C29B5300B289CA /* Swinject */; };
 		D38750E622C1566B0088DC0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38750E522C1566B0088DC0B /* AppDelegate.swift */; };
 		D38750E822C1566B0088DC0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38750E722C1566B0088DC0B /* SceneDelegate.swift */; };
 		D38750EA22C1566B0088DC0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38750E922C1566B0088DC0B /* ContentView.swift */; };
@@ -195,6 +200,9 @@
 		D319F11222C286BF00B289CA /* PresentationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PresentationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D319F11922C286BF00B289CA /* PresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationTests.swift; sourceTree = "<group>"; };
 		D319F11B22C286BF00B289CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D319F14A22C28E7400B289CA /* HomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
+		D319F14F22C290AD00B289CA /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
+		D319F15322C2914A00B289CA /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		D38750E222C1566B0088DC0B /* Jeroenscode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jeroenscode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38750E522C1566B0088DC0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D38750E722C1566B0088DC0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -223,7 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D319F13522C2876400B289CA /* Domain.framework in Frameworks */,
-				D319F14122C28A8D00B289CA /* Alamofire in Frameworks */,
+				D319F15622C29B3800B289CA /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +247,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D319F15822C29B5300B289CA /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D319F0FD22C286B800B289CA /* Domain.framework in Frameworks */,
+				D319F14722C28DEB00B289CA /* Swinject in Frameworks */,
 				D319F0DA22C2869E00B289CA /* Data.framework in Frameworks */,
 				D319F11F22C286BF00B289CA /* Presentation.framework in Frameworks */,
 				D319F13F22C28A5100B289CA /* Nuke in Frameworks */,
@@ -297,6 +307,7 @@
 		D319F0C622C2869E00B289CA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				D319F14E22C2909A00B289CA /* Assembly */,
 				D387511922C156930088DC0B /* Home */,
 				D319F0C722C2869E00B289CA /* Data.h */,
 				D319F0C822C2869E00B289CA /* Info.plist */,
@@ -358,6 +369,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D319F14E22C2909A00B289CA /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				D319F14F22C290AD00B289CA /* ServiceAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		D319F15122C2910500B289CA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D319F15222C2910F00B289CA /* Application */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D319F15222C2910F00B289CA /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D38750E522C1566B0088DC0B /* AppDelegate.swift */,
+				D38750E722C1566B0088DC0B /* SceneDelegate.swift */,
+				D319F15322C2914A00B289CA /* AppAssembly.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		D38750D922C1566B0088DC0B = {
 			isa = PBXGroup;
 			children = (
@@ -394,8 +431,7 @@
 		D38750E422C1566B0088DC0B /* Jeroenscode */ = {
 			isa = PBXGroup;
 			children = (
-				D38750E522C1566B0088DC0B /* AppDelegate.swift */,
-				D38750E722C1566B0088DC0B /* SceneDelegate.swift */,
+				D319F15122C2910500B289CA /* Classes */,
 				D38750E922C1566B0088DC0B /* ContentView.swift */,
 				D38750EB22C1566C0088DC0B /* Assets.xcassets */,
 				D38750F022C1566C0088DC0B /* LaunchScreen.storyboard */,
@@ -446,6 +482,7 @@
 				D387513422C1639D0088DC0B /* HomeInteractor.swift */,
 				D387513622C164BB0088DC0B /* HomePresenter.swift */,
 				D387513822C167160088DC0B /* HomeUseCase.swift */,
+				D319F14A22C28E7400B289CA /* HomeAssembly.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -513,7 +550,7 @@
 			);
 			name = Data;
 			packageProductDependencies = (
-				D319F14022C28A8D00B289CA /* Alamofire */,
+				D319F15522C29B3800B289CA /* Alamofire */,
 			);
 			productName = Data;
 			productReference = D319F0C522C2869E00B289CA /* Data.framework */;
@@ -552,6 +589,9 @@
 			dependencies = (
 			);
 			name = Domain;
+			packageProductDependencies = (
+				D319F15722C29B5300B289CA /* Swinject */,
+			);
 			productName = Domain;
 			productReference = D319F0E822C286B800B289CA /* Domain.framework */;
 			productType = "com.apple.product-type.framework";
@@ -591,6 +631,8 @@
 				D319F13322C2875A00B289CA /* PBXTargetDependency */,
 			);
 			name = Presentation;
+			packageProductDependencies = (
+			);
 			productName = Presentation;
 			productReference = D319F10A22C286BF00B289CA /* Presentation.framework */;
 			productType = "com.apple.product-type.framework";
@@ -633,6 +675,7 @@
 			name = Jeroenscode;
 			packageProductDependencies = (
 				D319F13E22C28A5100B289CA /* Nuke */,
+				D319F14622C28DEB00B289CA /* Swinject */,
 			);
 			productName = Jeroenscode;
 			productReference = D38750E222C1566B0088DC0B /* Jeroenscode.app */;
@@ -730,7 +773,7 @@
 			packageReferences = (
 				D319F13A22C2899D00B289CA /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D319F13D22C28A5100B289CA /* XCRemoteSwiftPackageReference "Nuke" */,
-				D319F14222C28CF700B289CA /* XCRemoteSwiftPackageReference "Swinject" */,
+				D319F14522C28DEB00B289CA /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = D38750E322C1566B0088DC0B /* Products */;
 			projectDirPath = "";
@@ -824,6 +867,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D319F12722C286DA00B289CA /* GetBlogsService.swift in Sources */,
+				D319F15022C290AD00B289CA /* ServiceAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,6 +901,7 @@
 			files = (
 				D319F12D22C2870400B289CA /* HomePresenter.swift in Sources */,
 				D319F12B22C2870400B289CA /* HomeView.swift in Sources */,
+				D319F14B22C28E7400B289CA /* HomeAssembly.swift in Sources */,
 				D319F12E22C2870400B289CA /* HomeUseCase.swift in Sources */,
 				D319F12C22C2870400B289CA /* HomeInteractor.swift in Sources */,
 			);
@@ -875,6 +920,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D38750E622C1566B0088DC0B /* AppDelegate.swift in Sources */,
+				D319F15422C2914A00B289CA /* AppAssembly.swift in Sources */,
 				D38750E822C1566B0088DC0B /* SceneDelegate.swift in Sources */,
 				D38750EA22C1566B0088DC0B /* ContentView.swift in Sources */,
 			);
@@ -1610,7 +1656,7 @@
 				kind = branch;
 			};
 		};
-		D319F14222C28CF700B289CA /* XCRemoteSwiftPackageReference "Swinject" */ = {
+		D319F14522C28DEB00B289CA /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject";
 			requirement = {
@@ -1626,10 +1672,20 @@
 			package = D319F13D22C28A5100B289CA /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
 		};
-		D319F14022C28A8D00B289CA /* Alamofire */ = {
+		D319F14622C28DEB00B289CA /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D319F14522C28DEB00B289CA /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		D319F15522C29B3800B289CA /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D319F13A22C2899D00B289CA /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		D319F15722C29B5300B289CA /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D319F14522C28DEB00B289CA /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
