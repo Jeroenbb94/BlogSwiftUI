@@ -7,10 +7,23 @@
 //
 
 import SwiftUI
+import Combine
 
 public protocol HomeViewDisplayProtocol {
-    func displayBlogPosts()
-    func displayError()
+    func displayBlogPosts(blogPosts: [BlogPostRowViewModel])
+    func displayError(message: String)
+}
+
+public final class DataSource: BindableObject {
+    public let didChange = PassthroughSubject<DataSource, Never>()
+    
+    public init() { }
+    
+    public var blogPosts: [BlogPostRowViewModel] = [] {
+        didSet {
+            didChange.send(self)
+        }
+    }
 }
 
 public struct HomeView: View {
@@ -18,13 +31,25 @@ public struct HomeView: View {
     private let interactor: HomeInteractorProtocol
     private let presenter: HomePresenterProtocol
     
-    public init(interactor: HomeInteractorProtocol, presenter: HomePresenterProtocol) {
+    @ObjectBinding var dataSource: DataSource
+    
+    public init(interactor: HomeInteractorProtocol, presenter: HomePresenterProtocol, dataSource: DataSource) {
         self.interactor = interactor
         self.presenter = presenter
+        self.dataSource = dataSource
     }
     
     public var body: some View {
-        Text("Hey").onAppear {
+        Group {
+            if dataSource.blogPosts.isEmpty {
+                Text("Loading.....")
+            } else {
+                NavigationView {
+                    List(dataSource.blogPosts, rowContent: BlogPostRow.init)
+                        .navigationBarTitle(Text("Blog posts"))
+                }
+            }
+        }.onAppear {
             self.interactor.fetchBlogs()
         }
     }
@@ -33,19 +58,11 @@ public struct HomeView: View {
 // MARK: - HomeViewDisplayProtocol
 extension HomeView: HomeViewDisplayProtocol {
     
-    public func displayBlogPosts() {
-        
+    public func displayBlogPosts(blogPosts: [BlogPostRowViewModel]) {
+        dataSource.blogPosts = blogPosts
     }
     
-    public func displayError() {
-        
+    public func displayError(message: String) {
+        #warning("TODO - Add error view logic")
     }
 }
-
-//#if DEBUG
-//struct HomeView_Previews : PreviewProvider {
-//    static var previews: some View {
-//        HomeView()
-//    }
-//}
-//#endif

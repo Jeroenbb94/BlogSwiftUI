@@ -23,31 +23,39 @@ struct AppAssembly {
     
     init() {
 //        assembler.apply(assemblies: assemblies)
+        // App Assembly
+        container.register(TabbarView.self) { resolver in
+            TabbarView(homeView: resolver.resolve(HomeView.self)!)
+        }.inObjectScope(.container)
+        
+        // Service Assembly
         container.register(GetBlogsWorker.self) { resolver in
-            return GetBlogsService(manager: SessionManager.default)
+            GetBlogsService(manager: SessionManager.default)
         }
 
+        // Home Assembly
         container.register(HomeView.self) { resolver in
-            return HomeView(
+            HomeView(
                 interactor: resolver.resolve(HomeInteractorProtocol.self)!,
-                presenter: resolver.resolve(HomePresenterProtocol.self)!
+                presenter: resolver.resolve(HomePresenterProtocol.self)!,
+                dataSource: DataSource()
             )
         }
         
         container.register(HomeInteractorProtocol.self) { resolver in
-            return HomeInteractor(
+            HomeInteractor(
                 getBlogsWorker: resolver.resolve(GetBlogsWorker.self)!
             )
         }.initCompleted { (resolver, interactor) in
-                interactor.attach(presenter: resolver.resolve(HomePresenterProtocol.self)!)
+            interactor.attach(presenter: resolver.resolve(HomePresenterProtocol.self)!)
         }
         
         container.register(HomePresenterProtocol.self) { resolver in
-            return HomePresenter(
+            HomePresenter(
                 displayThreadQueue: .main
             )
         }.initCompleted { (resolver, presenter) in
-                presenter.attach(view: resolver.resolve(HomeView.self)!)
+            presenter.attach(view: resolver.resolve(HomeView.self)!)
         }
     }
 }

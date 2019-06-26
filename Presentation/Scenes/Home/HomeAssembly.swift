@@ -17,7 +17,8 @@ public struct HomeAssembly: Assembly {
         container.register(HomeView.self) { resolver in
             return HomeView(
                 interactor: resolver.resolve(HomeInteractorProtocol.self)!,
-                presenter: resolver.resolve(HomePresenterProtocol.self)!
+                presenter: resolver.resolve(HomePresenterProtocol.self)!,
+                dataSource: DataSource()
             )
         }
         

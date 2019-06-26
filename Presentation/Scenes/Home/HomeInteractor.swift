@@ -35,13 +35,7 @@ extension HomeInteractor: HomeInteractorProtocol {
     
     public func fetchBlogs() {
         getBlogsWorker.fetchBlogs { [weak self] (result) in
-            switch result {
-            case .success(let blogPosts):
-                self?.blogPosts = blogPosts
-                self?.presenter?.presentBlogPost(response: 0)
-            case .failure:
-                self?.presenter?.presentError()
-            }
+            self?.presenter?.presentBlogPost(response: result)
         }
     }
 }

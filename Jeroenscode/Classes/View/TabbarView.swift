@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  TabbarView.swift
 //  Jeroenscode
 //
 //  Created by Jeroen Bakker on 24/06/2019.
@@ -7,14 +7,19 @@
 //
 
 import SwiftUI
+import Presentation
 
-struct ContentView : View {
+struct TabbarView: View {
+    private let homeView: HomeView
     @State private var selection = 0
+    
+    init(homeView: HomeView) {
+        self.homeView = homeView
+    }
  
     var body: some View {
-        TabbedView(selection: $selection){
-            Text("First View")
-                .font(.title)
+        TabbedView(selection: $selection) {
+            homeView
                 .tabItemLabel(Image("first"))
                 .tag(0)
             Text("Second View")
@@ -24,11 +29,3 @@ struct ContentView : View {
         }
     }
 }
-
-#if DEBUG
-struct ContentView_Previews : PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-#endif

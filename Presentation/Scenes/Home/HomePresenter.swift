@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import Domain
 
 public protocol HomePresenterProtocol {
     var view: HomeViewDisplayProtocol? { get set }
     func attach(view: HomeViewDisplayProtocol)
     
-    func presentBlogPost(response: Int)
-    func presentError()
+    func presentBlogPost(response: Result<[BlogPost], GetBlogsWorkerError>)
 }
 
 public final class HomePresenter {
@@ -33,15 +33,19 @@ public final class HomePresenter {
 // MARK: - HomePresenterProtocol
 extension HomePresenter: HomePresenterProtocol {
     
-    public func presentBlogPost(response: Int) {
-        displayThreadQueue.async {
-            self.view?.displayBlogPosts()
-        }
-    }
-    
-    public func presentError() {
-        displayThreadQueue.async {
-            self.view?.displayError()
+    public func presentBlogPost(response: Result<[BlogPost], GetBlogsWorkerError>) {
+        switch response {
+        case .success(let blogPosts):
+            let viewModels = blogPosts.map { (blogPost) -> BlogPostRowViewModel in
+                BlogPostRowViewModel(id: blogPost.id, title: blogPost.title, date: blogPost.date)
+            }
+            displayThreadQueue.async {
+                self.view?.displayBlogPosts(blogPosts: viewModels)
+            }
+        case .failure(let error):
+            displayThreadQueue.async {
+                self.view?.displayError(message: error.localizedDescription)
+            }
         }
     }
 }

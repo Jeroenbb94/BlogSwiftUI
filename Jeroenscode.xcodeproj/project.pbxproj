@@ -27,21 +27,22 @@
 		D319F12B22C2870400B289CA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387513222C159BD0088DC0B /* HomeView.swift */; };
 		D319F12C22C2870400B289CA /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387513422C1639D0088DC0B /* HomeInteractor.swift */; };
 		D319F12D22C2870400B289CA /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387513622C164BB0088DC0B /* HomePresenter.swift */; };
-		D319F12E22C2870400B289CA /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387513822C167160088DC0B /* HomeUseCase.swift */; };
 		D319F13022C2875A00B289CA /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D319F0E822C286B800B289CA /* Domain.framework */; };
 		D319F13122C2875A00B289CA /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D319F0E822C286B800B289CA /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D319F13522C2876400B289CA /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D319F0E822C286B800B289CA /* Domain.framework */; };
 		D319F13622C2876400B289CA /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D319F0E822C286B800B289CA /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D319F13F22C28A5100B289CA /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = D319F13E22C28A5100B289CA /* Nuke */; };
-		D319F14722C28DEB00B289CA /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = D319F14622C28DEB00B289CA /* Swinject */; };
 		D319F14B22C28E7400B289CA /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319F14A22C28E7400B289CA /* HomeAssembly.swift */; };
 		D319F15022C290AD00B289CA /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319F14F22C290AD00B289CA /* ServiceAssembly.swift */; };
 		D319F15422C2914A00B289CA /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319F15322C2914A00B289CA /* AppAssembly.swift */; };
 		D319F15622C29B3800B289CA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D319F15522C29B3800B289CA /* Alamofire */; };
 		D319F15822C29B5300B289CA /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = D319F15722C29B5300B289CA /* Swinject */; };
+		D319F15B22C2A2B800B289CA /* WPPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319F15A22C2A2B800B289CA /* WPPost.swift */; };
+		D319F16022C2A86A00B289CA /* BlogPostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319F15F22C2A86A00B289CA /* BlogPostRow.swift */; };
+		D319F16222C2A93200B289CA /* BlogPostRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319F16122C2A93200B289CA /* BlogPostRowViewModel.swift */; };
 		D38750E622C1566B0088DC0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38750E522C1566B0088DC0B /* AppDelegate.swift */; };
 		D38750E822C1566B0088DC0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38750E722C1566B0088DC0B /* SceneDelegate.swift */; };
-		D38750EA22C1566B0088DC0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38750E922C1566B0088DC0B /* ContentView.swift */; };
+		D38750EA22C1566B0088DC0B /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38750E922C1566B0088DC0B /* TabbarView.swift */; };
 		D38750EC22C1566C0088DC0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38750EB22C1566C0088DC0B /* Assets.xcassets */; };
 		D38750EF22C1566C0088DC0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38750EE22C1566C0088DC0B /* Preview Assets.xcassets */; };
 		D38750F222C1566C0088DC0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D38750F022C1566C0088DC0B /* LaunchScreen.storyboard */; };
@@ -203,10 +204,13 @@
 		D319F14A22C28E7400B289CA /* HomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
 		D319F14F22C290AD00B289CA /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		D319F15322C2914A00B289CA /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
+		D319F15A22C2A2B800B289CA /* WPPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPPost.swift; sourceTree = "<group>"; };
+		D319F15F22C2A86A00B289CA /* BlogPostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostRow.swift; sourceTree = "<group>"; };
+		D319F16122C2A93200B289CA /* BlogPostRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostRowViewModel.swift; sourceTree = "<group>"; };
 		D38750E222C1566B0088DC0B /* Jeroenscode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jeroenscode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38750E522C1566B0088DC0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D38750E722C1566B0088DC0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D38750E922C1566B0088DC0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D38750E922C1566B0088DC0B /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		D38750EB22C1566C0088DC0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D38750EE22C1566C0088DC0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D38750F122C1566C0088DC0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -222,7 +226,6 @@
 		D387513222C159BD0088DC0B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D387513422C1639D0088DC0B /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		D387513622C164BB0088DC0B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
-		D387513822C167160088DC0B /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,7 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D319F0FD22C286B800B289CA /* Domain.framework in Frameworks */,
-				D319F14722C28DEB00B289CA /* Swinject in Frameworks */,
 				D319F0DA22C2869E00B289CA /* Data.framework in Frameworks */,
 				D319F11F22C286BF00B289CA /* Presentation.framework in Frameworks */,
 				D319F13F22C28A5100B289CA /* Nuke in Frameworks */,
@@ -307,6 +309,7 @@
 		D319F0C622C2869E00B289CA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				D319F15922C2A2A800B289CA /* Models */,
 				D319F14E22C2909A00B289CA /* Assembly */,
 				D387511922C156930088DC0B /* Home */,
 				D319F0C722C2869E00B289CA /* Data.h */,
@@ -346,6 +349,7 @@
 		D319F10B22C286BF00B289CA /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				D319F15D22C2A7A800B289CA /* UIElements */,
 				D387511622C156930088DC0B /* Scenes */,
 				D319F10C22C286BF00B289CA /* Presentation.h */,
 				D319F10D22C286BF00B289CA /* Info.plist */,
@@ -380,6 +384,7 @@
 		D319F15122C2910500B289CA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D319F15C22C2A66E00B289CA /* View */,
 				D319F15222C2910F00B289CA /* Application */,
 			);
 			path = Classes;
@@ -393,6 +398,39 @@
 				D319F15322C2914A00B289CA /* AppAssembly.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		D319F15922C2A2A800B289CA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D319F15A22C2A2B800B289CA /* WPPost.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D319F15C22C2A66E00B289CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D38750E922C1566B0088DC0B /* TabbarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D319F15D22C2A7A800B289CA /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				D319F15E22C2A85300B289CA /* BlogPostRow */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		D319F15E22C2A85300B289CA /* BlogPostRow */ = {
+			isa = PBXGroup;
+			children = (
+				D319F15F22C2A86A00B289CA /* BlogPostRow.swift */,
+				D319F16122C2A93200B289CA /* BlogPostRowViewModel.swift */,
+			);
+			path = BlogPostRow;
 			sourceTree = "<group>";
 		};
 		D38750D922C1566B0088DC0B = {
@@ -432,7 +470,6 @@
 			isa = PBXGroup;
 			children = (
 				D319F15122C2910500B289CA /* Classes */,
-				D38750E922C1566B0088DC0B /* ContentView.swift */,
 				D38750EB22C1566C0088DC0B /* Assets.xcassets */,
 				D38750F022C1566C0088DC0B /* LaunchScreen.storyboard */,
 				D38750F322C1566C0088DC0B /* Info.plist */,
@@ -478,11 +515,10 @@
 		D387511722C156930088DC0B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D387513222C159BD0088DC0B /* HomeView.swift */,
+				D319F14A22C28E7400B289CA /* HomeAssembly.swift */,
 				D387513422C1639D0088DC0B /* HomeInteractor.swift */,
 				D387513622C164BB0088DC0B /* HomePresenter.swift */,
-				D387513822C167160088DC0B /* HomeUseCase.swift */,
-				D319F14A22C28E7400B289CA /* HomeAssembly.swift */,
+				D387513222C159BD0088DC0B /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -675,7 +711,6 @@
 			name = Jeroenscode;
 			packageProductDependencies = (
 				D319F13E22C28A5100B289CA /* Nuke */,
-				D319F14622C28DEB00B289CA /* Swinject */,
 			);
 			productName = Jeroenscode;
 			productReference = D38750E222C1566B0088DC0B /* Jeroenscode.app */;
@@ -866,6 +901,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D319F15B22C2A2B800B289CA /* WPPost.swift in Sources */,
 				D319F12722C286DA00B289CA /* GetBlogsService.swift in Sources */,
 				D319F15022C290AD00B289CA /* ServiceAssembly.swift in Sources */,
 			);
@@ -900,9 +936,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D319F12D22C2870400B289CA /* HomePresenter.swift in Sources */,
+				D319F16222C2A93200B289CA /* BlogPostRowViewModel.swift in Sources */,
 				D319F12B22C2870400B289CA /* HomeView.swift in Sources */,
+				D319F16022C2A86A00B289CA /* BlogPostRow.swift in Sources */,
 				D319F14B22C28E7400B289CA /* HomeAssembly.swift in Sources */,
-				D319F12E22C2870400B289CA /* HomeUseCase.swift in Sources */,
 				D319F12C22C2870400B289CA /* HomeInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -922,7 +959,7 @@
 				D38750E622C1566B0088DC0B /* AppDelegate.swift in Sources */,
 				D319F15422C2914A00B289CA /* AppAssembly.swift in Sources */,
 				D38750E822C1566B0088DC0B /* SceneDelegate.swift in Sources */,
-				D38750EA22C1566B0088DC0B /* ContentView.swift in Sources */,
+				D38750EA22C1566B0088DC0B /* TabbarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1671,11 +1708,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D319F13D22C28A5100B289CA /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
-		};
-		D319F14622C28DEB00B289CA /* Swinject */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D319F14522C28DEB00B289CA /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = Swinject;
 		};
 		D319F15522C29B3800B289CA /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

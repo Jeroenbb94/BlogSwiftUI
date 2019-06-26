@@ -23,8 +23,8 @@ public struct GetBlogsService: GetBlogsWorker {
                 switch dataResponse.result {
                 case .success(let data):
                     do {
-                        let blogPosts = try JSONDecoder().decode([BlogPost].self, from: data)
-                        completionHandler(.success(blogPosts))
+                        let wpPosts = try JSONDecoder().decode([WPPost].self, from: data)
+                        completionHandler(.success(self.mapDataToBlogPosts(data: wpPosts)))
                     } catch let error {
                         completionHandler(.failure(.decoding(error)))
                     }
@@ -32,5 +32,17 @@ public struct GetBlogsService: GetBlogsWorker {
                     completionHandler(.failure(.network(error)))
                 }
             }
+    }
+    
+    private func mapDataToBlogPosts(data: [WPPost]) -> [BlogPost] {
+        return data.compactMap { (post) -> BlogPost? in
+            return BlogPost(
+                id: post.id,
+                date: post.date,
+                title: post.title.rendered,
+                content: post.content.rendered,
+                excerpt: post.excerpt.rendered
+            )
+        }
     }
 }

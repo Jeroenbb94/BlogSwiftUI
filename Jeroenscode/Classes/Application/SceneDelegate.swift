@@ -28,7 +28,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        window.rootViewController = UIHostingController(rootView: appAssembly.container.resolve(HomeView.self)!)
+        window.rootViewController = UIHostingController(rootView: appAssembly.container.resolve(TabbarView.self)!)
         self.window = window
         window.makeKeyAndVisible()
     }

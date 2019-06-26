@@ -18,23 +18,18 @@ public enum GetBlogsWorkerError: Error {
     case decoding(Error)
 }
 
-public struct BlogPost: Decodable {
-    private enum CodingKeys: String, CodingKey {
-        case id, date, title, content, categories
-        case featuredMedia = "featured_media"
-    }
-    
+public struct BlogPost {
     public let id: Int
     public let date: String
-    public let title: Content
-    public let content: Content
-    public let featuredMedia: Int
-    public let categories: [Int]
-}
-
-public extension BlogPost {
+    public let title: String
+    public let content: String
+    public let excerpt: String
     
-    struct Content: Decodable {
-        public let rendered: String
+    public init(id: Int, date: String, title: String, content: String, excerpt: String) {
+        self.id = id
+        self.date = date
+        self.title = title
+        self.content = content
+        self.excerpt = excerpt
     }
 }
