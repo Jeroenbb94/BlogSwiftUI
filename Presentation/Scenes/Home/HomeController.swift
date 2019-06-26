@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-public protocol HomeViewDisplayProtocol {
+public protocol HomeControllerProtocol {
     func displayBlogPosts(blogPosts: [BlogPostRowViewModel])
     func displayError(message: String)
 }
@@ -19,7 +19,7 @@ public final class HomeController: BindableObject {
     private let presenter: HomePresenterProtocol
     
     public let interactor: HomeInteractorProtocol
-    public let didChange = PassthroughSubject<Void, Never>()
+    public let didChange = PassthroughSubject<HomeController, Never>()
     
     public private(set) var blogPosts: [BlogPostRowViewModel] = []
     public private(set) var errorMessage: String?
@@ -31,17 +31,17 @@ public final class HomeController: BindableObject {
 }
 
 // MARK: - HomeViewDisplayProtocol
-extension HomeController: HomeViewDisplayProtocol {
+extension HomeController: HomeControllerProtocol {
     
     public func displayBlogPosts(blogPosts: [BlogPostRowViewModel]) {
         self.blogPosts = blogPosts
         
-        didChange.send()
+        didChange.send(self)
     }
     
     public func displayError(message: String) {
         self.errorMessage = message
         
-        didChange.send()
+        didChange.send(self)
     }
 }

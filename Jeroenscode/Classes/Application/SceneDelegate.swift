@@ -17,12 +17,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private let appAssembly: AppAssembly = AppAssembly()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-
-        // Use a UIHostingController as window root view controller
-        guard let windowScene = scene as? UIWindowScene else {
+        let isUnitTesting = ProcessInfo.processInfo.environment["IS_UNIT_TESTING"] == "YES"
+        
+        guard !isUnitTesting, let windowScene = scene as? UIWindowScene else {
             return
         }
         

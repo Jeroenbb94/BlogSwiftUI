@@ -19,7 +19,7 @@ public struct HomeView: View {
     public var body: some View {
         Group {
             if controller.blogPosts.isEmpty {
-                Text("Loading.....")
+                LoadingView()
             } else {
                 NavigationView {
                     List(controller.blogPosts, rowContent: BlogPostRow.init)

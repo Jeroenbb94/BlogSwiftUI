@@ -9,7 +9,7 @@
 import Domain
 import Alamofire
 
-public struct GetBlogsService: GetBlogsWorker {
+public struct GetBlogsService: GetBlogsServiceProtocol {
     
     private let manager: SessionManager
     
@@ -17,7 +17,7 @@ public struct GetBlogsService: GetBlogsWorker {
         self.manager = manager
     }
     
-    public func fetchBlogs(completionHandler: @escaping (Swift.Result<[BlogPost], GetBlogsWorkerError>) -> Void) {
+    public func fetchBlogs(completionHandler: @escaping (Swift.Result<[BlogPost], GetBlogsServiceError>) -> Void) {
         manager.request("https://jeroenscode.com/wp-json/wp/v2/posts")
             .responseData { (dataResponse) in
                 switch dataResponse.result {

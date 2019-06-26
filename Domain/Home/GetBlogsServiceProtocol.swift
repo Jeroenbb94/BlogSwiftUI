@@ -1,5 +1,5 @@
 //
-//  GetBlogsWorker.swift
+//  GetBlogsServiceProtocol.swift
 //  Jeroenscode
 //
 //  Created by Jeroen Bakker on 24/06/2019.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-public protocol GetBlogsWorker {
-    func fetchBlogs(completionHandler: @escaping (Result<[BlogPost], GetBlogsWorkerError>) -> Void)
+public protocol GetBlogsServiceProtocol {
+    func fetchBlogs(completionHandler: @escaping (Result<[BlogPost], GetBlogsServiceError>) -> Void)
 }
 
-public enum GetBlogsWorkerError: Error {
+public enum GetBlogsServiceError: Error {
     case noResponse
     case network(Error)
     case decoding(Error)

@@ -29,7 +29,7 @@ struct AppAssembly {
         }.inObjectScope(.container)
         
         // Service Assembly
-        container.register(GetBlogsWorker.self) { resolver in
+        container.register(GetBlogsServiceProtocol.self) { resolver in
             GetBlogsService(manager: SessionManager.default)
         }
 
@@ -47,18 +47,16 @@ struct AppAssembly {
         
         container.register(HomeInteractorProtocol.self) { resolver in
             HomeInteractor(
-                getBlogsWorker: resolver.resolve(GetBlogsWorker.self)!
+                getBlogsWorker: resolver.resolve(GetBlogsServiceProtocol.self)!
             )
         }.initCompleted { (resolver, interactor) in
             interactor.attach(presenter: resolver.resolve(HomePresenterProtocol.self)!)
         }
         
         container.register(HomePresenterProtocol.self) { resolver in
-            HomePresenter(
-                displayThreadQueue: .main
-            )
+            HomePresenter()
         }.initCompleted { (resolver, presenter) in
-            presenter.attach(view: resolver.resolve(HomeController.self)!)
+            presenter.attach(controller: resolver.resolve(HomeController.self)!)
         }
     }
 }

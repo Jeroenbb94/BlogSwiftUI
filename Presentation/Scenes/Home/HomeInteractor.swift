@@ -17,11 +17,11 @@ public protocol HomeInteractorProtocol {
 
 public final class HomeInteractor {
     
-    private let getBlogsWorker: GetBlogsWorker
+    private let getBlogsWorker: GetBlogsServiceProtocol
     private var blogPosts: [BlogPost] = []
     
     public var presenter: HomePresenterProtocol?
-    public init(getBlogsWorker: GetBlogsWorker) {
+    public init(getBlogsWorker: GetBlogsServiceProtocol) {
         self.getBlogsWorker = getBlogsWorker
     }
     
@@ -35,6 +35,7 @@ extension HomeInteractor: HomeInteractorProtocol {
     
     public func fetchBlogs() {
         getBlogsWorker.fetchBlogs { [weak self] (result) in
+            self?.blogPosts = (try? result.get()) ?? []
             self?.presenter?.presentBlogPost(response: result)
         }
     }

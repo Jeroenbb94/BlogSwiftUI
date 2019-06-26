@@ -10,42 +10,35 @@ import UIKit
 import Domain
 
 public protocol HomePresenterProtocol {
-    var view: HomeViewDisplayProtocol? { get set }
-    func attach(view: HomeViewDisplayProtocol)
+    var controller: HomeControllerProtocol? { get set }
+    func attach(controller: HomeControllerProtocol)
     
-    func presentBlogPost(response: Result<[BlogPost], GetBlogsWorkerError>)
+    func presentBlogPost(response: Result<[BlogPost], GetBlogsServiceError>)
 }
 
 public final class HomePresenter {
     
-    private let displayThreadQueue: DispatchQueue
-    public var view: HomeViewDisplayProtocol?
+    public var controller: HomeControllerProtocol?
     
-    public init(displayThreadQueue: DispatchQueue = .main) {
-        self.displayThreadQueue = displayThreadQueue
-    }
+    public init() { }
     
-    public func attach(view: HomeViewDisplayProtocol) {
-        self.view = view
+    public func attach(controller: HomeControllerProtocol) {
+        self.controller = controller
     }
 }
 
 // MARK: - HomePresenterProtocol
 extension HomePresenter: HomePresenterProtocol {
     
-    public func presentBlogPost(response: Result<[BlogPost], GetBlogsWorkerError>) {
+    public func presentBlogPost(response: Result<[BlogPost], GetBlogsServiceError>) {
         switch response {
         case .success(let blogPosts):
             let viewModels = blogPosts.map { (blogPost) -> BlogPostRowViewModel in
                 BlogPostRowViewModel(id: blogPost.id, title: blogPost.title, date: blogPost.date)
             }
-            displayThreadQueue.async {
-                self.view?.displayBlogPosts(blogPosts: viewModels)
-            }
+            controller?.displayBlogPosts(blogPosts: viewModels)
         case .failure(let error):
-            displayThreadQueue.async {
-                self.view?.displayError(message: error.localizedDescription)
-            }
+            controller?.displayError(message: error.localizedDescription)
         }
     }
 }
