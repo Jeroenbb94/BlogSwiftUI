@@ -32,8 +32,6 @@
 		D319F13522C2876400B289CA /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D319F0E822C286B800B289CA /* Domain.framework */; };
 		D319F13622C2876400B289CA /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D319F0E822C286B800B289CA /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D319F13F22C28A5100B289CA /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = D319F13E22C28A5100B289CA /* Nuke */; };
-		D319F14B22C28E7400B289CA /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319F14A22C28E7400B289CA /* HomeAssembly.swift */; };
-		D319F15022C290AD00B289CA /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319F14F22C290AD00B289CA /* ServiceAssembly.swift */; };
 		D319F15422C2914A00B289CA /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319F15322C2914A00B289CA /* AppAssembly.swift */; };
 		D319F15622C29B3800B289CA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D319F15522C29B3800B289CA /* Alamofire */; };
 		D319F15822C29B5300B289CA /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = D319F15722C29B5300B289CA /* Swinject */; };
@@ -48,6 +46,7 @@
 		D38750F222C1566C0088DC0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D38750F022C1566C0088DC0B /* LaunchScreen.storyboard */; };
 		D38750FD22C1566D0088DC0B /* JeroenscodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38750FC22C1566D0088DC0B /* JeroenscodeTests.swift */; };
 		D387510822C1566D0088DC0B /* JeroenscodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387510722C1566D0088DC0B /* JeroenscodeUITests.swift */; };
+		D38AA35422C3E74200B7D57B /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38AA35322C3E74200B7D57B /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,8 +200,6 @@
 		D319F11222C286BF00B289CA /* PresentationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PresentationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D319F11922C286BF00B289CA /* PresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationTests.swift; sourceTree = "<group>"; };
 		D319F11B22C286BF00B289CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D319F14A22C28E7400B289CA /* HomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
-		D319F14F22C290AD00B289CA /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		D319F15322C2914A00B289CA /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		D319F15A22C2A2B800B289CA /* WPPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPPost.swift; sourceTree = "<group>"; };
 		D319F15F22C2A86A00B289CA /* BlogPostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostRow.swift; sourceTree = "<group>"; };
@@ -226,6 +223,7 @@
 		D387513222C159BD0088DC0B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D387513422C1639D0088DC0B /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		D387513622C164BB0088DC0B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		D38AA35322C3E74200B7D57B /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,7 +374,6 @@
 		D319F14E22C2909A00B289CA /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				D319F14F22C290AD00B289CA /* ServiceAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -515,7 +512,7 @@
 		D387511722C156930088DC0B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D319F14A22C28E7400B289CA /* HomeAssembly.swift */,
+				D38AA35322C3E74200B7D57B /* HomeController.swift */,
 				D387513422C1639D0088DC0B /* HomeInteractor.swift */,
 				D387513622C164BB0088DC0B /* HomePresenter.swift */,
 				D387513222C159BD0088DC0B /* HomeView.swift */,
@@ -903,7 +900,6 @@
 			files = (
 				D319F15B22C2A2B800B289CA /* WPPost.swift in Sources */,
 				D319F12722C286DA00B289CA /* GetBlogsService.swift in Sources */,
-				D319F15022C290AD00B289CA /* ServiceAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -937,9 +933,9 @@
 			files = (
 				D319F12D22C2870400B289CA /* HomePresenter.swift in Sources */,
 				D319F16222C2A93200B289CA /* BlogPostRowViewModel.swift in Sources */,
+				D38AA35422C3E74200B7D57B /* HomeController.swift in Sources */,
 				D319F12B22C2870400B289CA /* HomeView.swift in Sources */,
 				D319F16022C2A86A00B289CA /* BlogPostRow.swift in Sources */,
-				D319F14B22C28E7400B289CA /* HomeAssembly.swift in Sources */,
 				D319F12C22C2870400B289CA /* HomeInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

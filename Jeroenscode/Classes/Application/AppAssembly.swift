@@ -35,10 +35,13 @@ struct AppAssembly {
 
         // Home Assembly
         container.register(HomeView.self) { resolver in
-            HomeView(
+            HomeView(controller: resolver.resolve(HomeController.self)!)
+        }
+        
+        container.register(HomeController.self) { resolver in
+            HomeController(
                 interactor: resolver.resolve(HomeInteractorProtocol.self)!,
-                presenter: resolver.resolve(HomePresenterProtocol.self)!,
-                dataSource: DataSource()
+                presenter: resolver.resolve(HomePresenterProtocol.self)!
             )
         }
         
@@ -55,7 +58,7 @@ struct AppAssembly {
                 displayThreadQueue: .main
             )
         }.initCompleted { (resolver, presenter) in
-            presenter.attach(view: resolver.resolve(HomeView.self)!)
+            presenter.attach(view: resolver.resolve(HomeController.self)!)
         }
     }
 }
