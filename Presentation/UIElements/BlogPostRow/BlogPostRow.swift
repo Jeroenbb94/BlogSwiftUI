@@ -14,7 +14,7 @@ public struct BlogPostRow: View {
     public let viewModel: BlogPostRowViewModel
     
     public var body: some View {
-        HStack {
+        VStack(alignment: .leading) {
             Text(viewModel.title).font(.headline)
             Text(viewModel.date).font(.footnote)
         }
